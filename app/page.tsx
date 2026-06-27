@@ -4,7 +4,7 @@ type users = {
 };
 
 export default async function Home() {
-  // 1. Check cleanly if we are in local development vs production
+  // FIX: Flip the logic. Localhost for development, Vercel URL for production.
   const baseUrl =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
@@ -12,7 +12,7 @@ export default async function Home() {
 
   const res = await fetch(`${baseUrl}/api/users`);
 
-  // 2. Defensive check: Ensure we actually got a good response before parsing JSON
+  // Defensive check
   if (!res.ok) {
     return <div>Failed to load users. Status: {res.status}</div>;
   }
