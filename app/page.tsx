@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic"; // <-- Add this line
+"use client";
 
 type users = {
   id: number;
